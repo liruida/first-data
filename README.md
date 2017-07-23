@@ -49,12 +49,10 @@ body{
 .orange{
    background:orange;
 }
-
 </style>
 
 <script src="jQuery.js"></script>
 <script>
-
 $(function(){
     $("#a").click(function(){
         $('p').hide(1000);
@@ -186,5 +184,3 @@ var y = document.getElementById('nav');
  }
  </script>
 </body>
-
-
