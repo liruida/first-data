@@ -1,4 +1,5 @@
 
+<!DOCTYPE>
 <html>
 <head>
 <meta charset="utf-8" />
@@ -185,6 +186,5 @@ var y = document.getElementById('nav');
  }
  </script>
 </body>
-
 
 
