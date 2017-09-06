@@ -1,186 +1,92 @@
 
-<!DOCTYPE>
 <html>
-<head>
-<meta charset="utf-8" />
-<title>shiyan</title>
-<style>
-*{margin:0;padding:0;}  
-body { padding: 60px }
-#panel {position: relative; width: 100px; height:300px;border: 1px solid #0050D0;background: #96E555; cursor: pointer}
-body { font:12px/19px Arial, Helvetica, sans-serif; color:#666;}
-form div { margin:5px 0;}
-.int label { float:left; width:100px; text-align:right;}
-.int input { padding:1px 1px; border:1px solid #ccc;height:16px;}
-.sub { padding-left:100px;}
-.sub input { margin-right:10px; }
-.formtips{width: 200px;margin:2px;padding:2px;}
-.onError{
-    background:#FFE0E9 ;
+  <head>
+    <meta charset="utf-8">
   
-}
-.onSuccess{
-    background:#E9FBEB ;
-  
-}
-.high{
-    color:red;
-}
- #main{width:1000px;margin:0px auto;}
-  #pic1 img{width:150px;height:100px; float:left;margin:10px;}
-body{
-   background:lightgreen;
-}#nav{
-  width:100%;
-  height:200px;
-}
-.gray{
-   background:lightgray;
-}
-.blue{
-   background:lightblue;
-}
-.violet{
-   background:violet;
-}
-.pink{
-   background:pink;
-}
-.orange{
-   background:orange;
-}
-</style>
-
-<script src="jQuery.js"></script>
-<script>
-$(function(){
-    $("#a").click(function(){
-        $('p').hide(1000);
-      })
-    $("#b").click(function(){
-        $('p').show(1000);
-      })
-  })
-$(function(){
-    $("#panel").click(function(){
-      $(this).css("opacity",0.8)
-       $(this).animate({left: "1000px"}, 10000)
-          .animate({height: "100px"}, 3000);
-  })
-})
-$(function(){
-    $("form :input.required").each(function(){
-      var $required = $("<strong class='high'> *</strong>"); 
-      $(this).parent().append($required); 
-    });
-      $('form :input').blur(function(){  
-       var $parent = $(this).parent();
-       $parent.find(".formtips").remove(); 
-       if( $(this).is('#username') ){
-          if( this.value=="" || this.value.length < 6 ){
-              var errorMsg = '请输入至少6位的用户名.';
-                        $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
-          }else{
-              var okMsg = '输入正确.';
-              $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>');
-          }
-       }
-/[a-zA-Z0-9]{6,8}/
-       if( $(this).is('#email') ){
-        if( this.value=="" || ( this.value!="" && !/.+@.+\.[a-zA-Z]{2,4}$/.test(this.value) ) ){
-                      var errorMsg = '请输入正确的E-Mail地址.';
-            $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
-        }else{
-                      var okMsg = '输入正确.';
-            $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>');
-        }
-       }
-    })
-})
-//]]>
-window.onload=function(){
-    var div=document.getElementById("main");
-   imgs=div.getElementsByTagName('img');
-   for(var i=0;i<imgs.length;i++){
-    imgs[i].onclick=function(){
-      var bigpic=document.getElementById('bigpic');
-      bigpic.src=this.src;
-      for(var j=0;i<imgs.length;j++){
-        imgs[j].className="";
-      }
-      this.className='choose';
-    }
-   }
-  }
-  
-</script>
 </head>
-<body id="boy">
-<div id="nav">
-  <div id="logo"></div>
-    <div id="menu"> 点击切换：<input type="button" value="灰色" onclick="gray()">
-    <input type="button" value="蓝色" onclick="blue()">
-    <input type="button" value="紫色" onclick="violet()">
-    <input type="button" value="粉色" onclick="pink()">
-    <input type="button" value="橘色" onclick="orange()">
-    </div>
-<p>单击图框，显示主页</p>
-   <button  id="a">隐藏 </button>
-   <button  id="b">显示 </button>
-<div id="panel">点击图框  醉美师大</div> 
-<form method="post" action="">
-  <div class="int">
-    <label for="username">用户名:</label>
-    <input type="text" id="username" class="required" />
-  </div>
-  <div class="int">
-    <label for="email">邮箱:</label>
-    <input type="text" id="email" class="required" />
-  </div>
-  <div class="int">
-    <label for="personinfo">个人资料:</label>
-    <input type="text" id="personinfo" />
-  </div>
-  <div class="sub">
-    <input type="submit" value="提交" id="send"/><input type="reset" id="res"/>
-  </div>
-</form>
-<div id="main">
-        <div id="pic1">
-    <img src="images/s2.jpg" />
-    <img src="images/s3.jpg" />
-    <img src="images/s4.jpg" />
-    <img src="images/s5.jpg" />
-    <img src="images/s6.jpg" />
+<body bgcolor="cccccc">
 
-  </div>
-  <div><img src="images/s1.jpg"  id="bigpic" width="1000px"
->
- </div> 
+   <p>本博客包含以下内容</p>
+
+<ol>
+<li>问题提出</li>
+<li>解决方法</li>
+<li>原理解释</li>
+
+</ol>
+<a href="#c">点击回到底部</a>
+<a name="b"></a>
+
+
+<h2 id="1基本定义">1、问题提出</h2>
+
+
+
+<h3 id="继承">本地文件上传至GitHub：</h3>
+
+<p>在创建一个仓库时，如果需要本地文件，照片文档等，操作者会发现是无法直接在GitHub上直接上传的，是因为为安全起见，网站服务器是无法直接访问本地电脑的</p>
+
+
+
+<h2 id="2初始化和类的加载">2、解决方法</h2>
+
+<p>使用git工具用命令行一步一步将所需要的文件提到远程仓库中</p>
+
+<p>从上述来看，首先需要在本地下载git，下载完毕后，任意选择盘符，建立文件夹，鼠标右键右下方选择 git bash here，弹出命令行窗口</p>
+
+<p>接下来进行代码操作：</p>
+<p>1.$ cd 文件名  表示进入文件夹下，</p>
+<p>2.git init</p>
+<p>3.git status</p>
+
+<p>4.git add 所需要上传的文件</p>
+<p>5.git commit -m "第一次提交"</p>
+<p> 6.git remote add origin URL（自己仓库的URL）</p>
+<p>7.git push origin master</p>
+
+<p>git status表示查看状态，新手要经常使用</p>
+
+
+<h2 id="3final关键字">3、原理解释</h2>
+
+<p>图解</p>
+<p> <img src="https://github.com/liruida/cangku1/blob/master/18.jpg?raw=true" width="500" height="550" /></p>
+<h4>其它文章：</h4> 
+  <li><a href="https://liruida.github.io/liruida.github.io/ps2tuoceng.html 
+">PS层次2~~图层操作</a></li>
+   <li><a href="https://liruida.github.io/linux1.html
+">Linux服务器安装过程</a></li>
+  <li><a href=" https://liruida.github.io/linuxshizhan.html
+ ">linux文件操作命令</a></li>
+</a></li>
+  <li><a href="http://lib.csdn.net/base/javase 
+">Java SE知识库</a></li>
+<li><a href="http://leibnizhu.gitlab.io/
+">Java git 知识库</a></li>
+
+<p><a href="#b">点击回到顶部</a></p>
+ <a name="c"></a>
+  <p>&nbsp;&nbsp;&nbsp;</p>
+  <p>&nbsp;&nbsp;&nbsp;</p>
+  <p>&nbsp;&nbsp;&nbsp;</p>
+  <p>&nbsp;&nbsp;&nbsp;</p>
+  <p>&nbsp;&nbsp;&nbsp;日积月累&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;挟山超海&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;弗能撼也&nbsp;&nbsp;&nbsp;&nbsp;</p>
+    </body>
+</html>
+
+
+
+
  
-</div>
-<script>
-var x = document.getElementById('boy');
-var y = document.getElementById('nav');
- function gray(){
-   x.className='gray';
-   y.className='orange';
- }
- function blue(){
-   x.className='blue';
-   y.className='gray';
- }
- function violet(){
-   x.className='violet';
-   y.className='pink';
- }
- function pink(){
-   x.className='pink';
-   y.className='violet';
- }
- function orange(){
-   x.className='orange';
-   y.className='blue';
- }
- </script>
-</body>
+
+© 2017 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+API
+Training
+Shop
+Blog
